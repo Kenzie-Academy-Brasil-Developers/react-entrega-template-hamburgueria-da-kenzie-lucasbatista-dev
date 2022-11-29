@@ -6,11 +6,22 @@ import { Container, Header, Products, CartEmpty } from "./styles";
 
 export const Cart = ({
   dataBase,
-  handleRemove,
   emptyCard,
   setCurrentSale,
   currentSale,
+  setEmptyCard,
 }) => {
+  const handleRemove = (id) => {
+    const removed = currentSale.filter((item) => {
+      return item.id != id;
+    });
+
+    setCurrentSale(removed);
+    if (currentSale.length <= 1) {
+      setEmptyCard(true);
+    }
+  };
+
   return (
     <>
       <Container>
@@ -26,7 +37,7 @@ export const Cart = ({
                   title={item.name}
                   type={item.category}
                   key={item.id}
-                  handleRemove={handleRemove}
+                  handleRem={handleRemove}
                   id={item.id}
                 />
               ))}

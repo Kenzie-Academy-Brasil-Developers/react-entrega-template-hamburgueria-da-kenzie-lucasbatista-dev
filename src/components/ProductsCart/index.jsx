@@ -1,6 +1,6 @@
 import { LiContainer, Image, Info } from "./styles";
 
-export const ProductsCart = ({ image, title, type, handleRemove, id }) => {
+export const ProductsCart = ({ image, title, type, handleRem, id }) => {
   return (
     <LiContainer>
       <Image src={image} alt="" />
@@ -8,7 +8,7 @@ export const ProductsCart = ({ image, title, type, handleRemove, id }) => {
         <p>{title}</p>
         <span>{type}</span>
       </Info>
-      <button onClick={() => handleRemove(id)}>Remover</button>
+      <button onClick={() => handleRem(id)}>Remover</button>
     </LiContainer>
   );
 };
